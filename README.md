@@ -4,11 +4,11 @@ The public interface runs on GitHub Pages. AI requests go to a separate Node bac
 
 ## Deployment order
 
-1. Create a public GitHub repository named career-compass under AnshulShahMIS and push this project to main. Do not upload a .env file. The Pages workflow intentionally fails until the backend URL is configured.
-2. Deploy the Node backend from that repository to a Node web host. A Render Blueprint is included in render.yaml. It selects the free web service plan and starts node serve.mjs. Set OPENAI_API_KEY privately in the hosting service, never in public assets. The service must supply PORT and its public HTTPS URL (Render supplies RENDER_EXTERNAL_URL automatically). For another host set BACKEND_PUBLIC_URL explicitly.
+1. Use the public repository AnshulShahMIS/MIS556Group3Assignment2 and push this project to main. Do not upload a .env file. The public backend URL is configured in dist/api-config.json; a repository variable can override it.
+2. The primary AI backend is deployed at https://career-compass-student-coach.buzzychar19.chatgpt.site and has passed status, CORS preflight and a synthetic live AI request. For alternative hosting, deploy the Node backend from this repository to a Node web host. A Render Blueprint is included in render.yaml. It selects the free web service plan and starts node serve.mjs. Set OPENAI_API_KEY privately in the hosting service, never in public assets. The service must supply PORT and its public HTTPS URL (Render supplies RENDER_EXTERNAL_URL automatically). For another host set BACKEND_PUBLIC_URL explicitly.
 3. Set the backend ALLOWED_ORIGINS value to https://anshulshahmis.github.io. This is the origin, without the repository path. It authorizes browser requests from the Pages site. CORS is not authentication: non-browser callers can still reach a public API.
 4. Confirm the backend /api/status responds and test one real AI request. Copy the actual deployed backend URL; no backend URL is live merely because a configuration file exists.
-5. On GitHub open Settings → Secrets and variables → Actions → Variables. Create CAREER_COMPASS_API_URL containing the public HTTPS backend URL. This value is public, not a secret. Do not put the OpenAI key here.
+5. On GitHub open Settings → Secrets and variables → Actions → Variables. Optionally create CAREER_COMPASS_API_URL containing a replacement public HTTPS backend URL. The existing default is already configured. This value is public, not a secret. Do not put the OpenAI key here.
 6. Open Settings → Pages and choose GitHub Actions as the publishing source. Run the Publish Career Compass to GitHub Pages workflow. It tests the source, builds a static-only artifact, and deploys it.
 7. Use the URL returned by the successful Pages deployment. A proposed username.github.io path is not verification that publication succeeded. Test from another browser/device and verify AI MODE and a real answer.
 

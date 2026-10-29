@@ -1,0 +1,11 @@
+{
+  "version": "0.3.1",
+  "automatedTestsPassed": 76,
+  "exactReportedRequest": "Can you help me come up with answer for when they ask me to tell them about myself at a job interview",
+  "verifiedBrowserBehavior": [
+    "Returns an immediate fill-in introduction draft",
+    "Does not enter Question 1 of 5",
+    "Not what I am looking for changes direction and is not graded"
+  ],
+  "limits": "Templates and rule-based routing remain limited; live model drafting is still pending."
+}

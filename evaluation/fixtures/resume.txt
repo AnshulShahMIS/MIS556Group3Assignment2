@@ -1,0 +1,4 @@
+Jordan Lee
+MS Information Systems
+Built SQL queries to analyze campus dining records.
+Created a Tableau dashboard for an academic project.

@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-29",
+  "message": "Can you help me come up with answer for when they ask me to tell them about myself at a job interview",
+  "text": "When asked to \"Tell me about yourself\" in a job interview, it's best to give a brief summary focusing on your background, skills, and what motivates you professionally. Since I don't have details about your experience or education, here's a general template you can personalize:\n\n\"I am [your current status — e.g., a recent graduate, a professional with experience in XYZ]. I have developed skills in [mention your key skills relevant to the job or field], and I am passionate about [mention what motivates you related to your career goals]. I am eager to bring my [your skills/qualities] to contribute effectively in this role and continue learning and growing professionally.\"\n\nMake sure to keep it concise, positive, and focused on what you can offer to the employer. You can also prepare a short example or achievement to illustrate your strengths if you want to provide more depth. Practicing your answer aloud can help build confidence [source:interview-practice] [source:behavioral].",
+  "sourceIds": [
+    "behavioral",
+    "interview-practice"
+  ],
+  "sources": [
+    {
+      "id": "behavioral",
+      "title": "Behavioral interview examples",
+      "publisher": "CareerOneStop",
+      "url": "https://cloudfront.careeronestop.org/Veterans/JobSearch/Interviews/common-interview-questions.aspx",
+      "text": "Behavioral questions ask about specific past situations, including reaching goals and resolving conflict. Prepare concrete examples of what you did and how you approached the situation.",
+      "kind": "external-summary",
+      "reviewed": "2026-10-22",
+      "score": 5.178008602402422
+    },
+    {
+      "id": "interview-practice",
+      "title": "Prepare for an interview",
+      "publisher": "CareerOneStop",
+      "url": "https://cloudfront.careeronestop.org/JobSearch/Interview/get-ready.aspx?frd=true",
+      "text": "Prepare for interviews by practicing common questions on paper and out loud. Think through examples of your experience and skills. Keep explanations constructive when discussing difficult experiences.",
+      "kind": "external-summary",
+      "reviewed": "2026-10-22",
+      "score": 2.383114775956983
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "tool": "search_guidance",
+      "status": "completed"
+    }
+  ],
+  "usage": {
+    "inputTokens": 1654,
+    "outputTokens": 233,
+    "modelCalls": 2
+  },
+  "model": "gpt-4.1-mini",
+  "elapsedMs": 3396
+}

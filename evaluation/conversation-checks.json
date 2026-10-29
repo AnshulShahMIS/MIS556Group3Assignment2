@@ -1,0 +1,13 @@
+{
+  "version": "0.3.0",
+  "automatedTestsPassed": 61,
+  "browserChecks": [
+    "No Career Toolkit sections in sidebar",
+    "Plan request retained through resume and job intake",
+    "Plan returned automatically after comparison",
+    "One suggested next action with supporting evidence disclosure",
+    "Conversation options preserves goals, session files, sources and assignment evidence",
+    "Source library opens from Conversation options"
+  ],
+  "mode": "deterministic practice; live AI connection remains pending"
+}

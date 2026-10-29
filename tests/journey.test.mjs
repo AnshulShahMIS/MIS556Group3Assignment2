@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {analyze} from '../dist/engine.mjs';import {suggestNextStep,inferDocumentType} from '../dist/journey.mjs';
+const job='Student internship: SQL and Python are required. Academic projects and student experience are welcome.';
+test('conflicting evidence is reviewed before a learning plan',()=>{const r=analyze('I have no experience with SQL. Built SQL queries for a class project. Python is listed in my skills.',job,'Intern');assert.equal(suggestNextStep(r).action,'gaps')});
+test('self-reported skills prompt better evidence before more study',()=>{const r=analyze('Skills: SQL and Python. Education: MS Information Systems. Relevant coursework in business.',job,'Intern');assert.equal(suggestNextStep(r).action,'resume-tips')});
+test('required gaps lead to a plan with a confirmation reminder',()=>{const r=analyze('Built SQL queries to analyze campus survey records during a class project.',job,'Intern');const next=suggestNextStep(r);assert.equal(next.action,'plan');assert.match(next.message,/Confirm whether/) });
+test('described examples lead to explaining the experience',()=>{const r=analyze('Built SQL queries to analyze survey records. Created Python scripts to clean data in class.',job,'Intern');assert.equal(suggestNextStep(r).action,'interview')});
+test('pasted resumes can begin the journey without selecting a section',()=>assert.equal(inferDocumentType('Jordan Lee\nEDUCATION\nMS Information Systems\nSKILLS\nSQL, Python, Excel\nPROJECTS\nBuilt a dashboard for an academic project.'),'resume'));
+test('pasted job descriptions are recognized separately from resumes',()=>assert.equal(inferDocumentType('Business Analyst Intern\nRequired qualifications: SQL and Python.\nResponsibilities include analyzing records and preparing reports for stakeholders.'),'job'));
+test('ordinary long questions are not silently treated as documents',()=>assert.equal(inferDocumentType('I am unsure about my career direction and would like some help deciding what to work on next. I enjoy problem solving and working with people.'),null));
+test('short messages are not silently treated as full resumes',()=>assert.equal(inferDocumentType('My resume has SQL and Python.'),null));

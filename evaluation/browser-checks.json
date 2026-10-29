@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-27",
+  "fixtures": "synthetic student inputs only",
+  "checks": [
+    {
+      "name": "DOCX upload",
+      "result": "passed in previous browser session"
+    },
+    {
+      "name": "Text PDF upload and extracted-text review",
+      "result": "passed"
+    },
+    {
+      "name": "Equivalent wording and priority classification",
+      "result": "passed on the synthetic job/resume"
+    },
+    {
+      "name": "Five-hour weekly plan",
+      "result": "passed"
+    },
+    {
+      "name": "Save/open session with milestone restoration",
+      "result": "passed"
+    }
+  ],
+  "limits": [
+    "Scanned PDF OCR is not implemented",
+    "No live AI provider was tested",
+    "No real student usability study was conducted",
+    "Responsive flows were checked earlier; the new features were checked on the current desktop viewport"
+  ]
+}

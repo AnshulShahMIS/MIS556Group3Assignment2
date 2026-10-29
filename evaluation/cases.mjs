@@ -1,0 +1,25 @@
+export const cases=[
+ {id:'explicit-no-experience',skill:'Python',resume:'I have no experience with Python. I study history and volunteer on campus.',expected:false,status:'explicit-gap'},
+ {id:'list-negation',skill:'SQL',resume:'I have no experience with Python, SQL or Power BI. I study history and volunteer on campus.',expected:false,status:'explicit-gap'},
+ {id:'never-used',skill:'Python',resume:'I have never used Python. My coursework focuses on business ethics and history.',expected:false,status:'explicit-gap'},
+ {id:'unfamiliar',skill:'Power BI',resume:'I am unfamiliar with Power BI. My academic projects focus on writing and design.',expected:false,status:'explicit-gap'},
+ {id:'do-not-know',skill:'Python',resume:'I do not know Python. I have completed coursework in literature and communication.',expected:false,status:'explicit-gap'},
+ {id:'learning-intent',skill:'Python',resume:'I am currently learning Python through an introductory course. I volunteer on campus.',expected:false,status:'learning'},
+ {id:'listed-skill',skill:'Python',resume:'Education: MS Information Systems. Skills: Python, Excel and communication.',expected:true,status:'listed'},
+ {id:'project-example',skill:'Python',resume:'Built Python scripts to clean campus survey records for an academic project.',expected:true,status:'example'},
+ {id:'contrast-positive',skill:'SQL',resume:'I have no experience with Python but used SQL to query campus survey records.',expected:true,status:'example'},
+ {id:'contrast-negative',skill:'SQL',resume:'I used Python to analyze campus survey records but not SQL. This was a class project.',expected:false,status:'explicit-gap'},
+ {id:'conflicting-evidence',skill:'SQL',resume:'I have no experience with SQL. Built SQL queries for a class project last year.',expected:false,status:'needs-clarification'},
+ {id:'analysis-alias',skill:'Data analysis',resume:'Analyzed campus dining records and wrote a findings report for an academic project.',expected:true,status:'example'},
+ {id:'dashboard-alias',skill:'Data visualization',resume:'Created a Tableau dashboard to explain campus dining trends for a class project.',expected:true,status:'example'},
+ {id:'team-alias',skill:'Teamwork',resume:'Worked with a team to complete an academic project involving campus survey data.',expected:true,status:'listed'},
+ {id:'language-boundary',skill:'Java',resume:'Skills: JavaScript, HTML and CSS. Developed a website for a campus organization.',expected:false,status:'not-mentioned'},
+ {id:'nosql-boundary',skill:'SQL',resume:'Skills: NoSQL and document databases. Created an academic project for a class.',expected:false,status:'not-mentioned'},
+ {id:'cplusplus-symbol',skill:'C++',resume:'Skills: C++ and Git. Built a small command-line program for a class project.',expected:true,status:'listed'},
+ {id:'csharp-symbol',skill:'C#',resume:'Skills: C# and Git. Developed a small application for a campus class project.',expected:true,status:'listed'},
+ {id:'absent-skill',skill:'Kubernetes',resume:'I study information systems and write project reports for campus organizations.',expected:false,status:'not-mentioned'},
+ {id:'preferred-heading',skill:'Python',resume:'Education: MS Information Systems. Skills: Python, Excel and communication.',job:'Analyst Intern\nPreferred qualifications:\nPython and Excel experience for business reporting.',expected:true,status:'listed',priority:'preferred'},
+ {id:'required-heading',skill:'Python',resume:'Education: MS Information Systems. Skills: Python, Excel and communication.',job:'Analyst Intern\nRequired qualifications:\nPython and Excel experience for business reporting.',expected:true,status:'listed',priority:'required'},
+ {id:'optional-inline',skill:'Python',resume:'Education: MS Information Systems. Skills: Python, Excel and communication.',job:'Analyst Intern: Python is optional and not required. Academic projects are welcome.',expected:true,status:'listed',priority:'preferred'}
+];
+export const defaultJob=skill=>`Student internship: ${skill} is required. Academic projects and student experience are welcome.`;

@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-29",
+  "scope": "Small synthetic development checks, not a held-out benchmark or security guarantee.",
+  "results": [
+    {
+      "id": "comparison",
+      "text": "Your resume shows clear examples of using SQL, Excel, and data analysis skills, notably analyzing campus dining data and maintaining event registration spreadsheets. You also demonstrate communication and teamwork through presentations and collaborative projects. Python is listed as a skill, though you haven't provided a specific example of its application on your resume. The job requires additional skills like building dashboards in Power BI, gathering business requirements, and experience with Agile methodologies, which are not mentioned in your resume. It would be useful to clarify if you have any exposure to Power BI, experience gathering requirements, or familiarity with Agile practices. This will help identify any gaps or areas to strengthen before applying or interviewing.\n\nGuidance sources: [source:resume-ai] [source:career-exploration] [source:skill-gap]",
+      "sourceIds": [
+        "resume-ai",
+        "career-exploration",
+        "skill-gap"
+      ],
+      "sources": [
+        {
+          "id": "resume-ai",
+          "title": "Use AI as a revision partner",
+          "publisher": "Harvard Mignone Center for Career Success",
+          "url": "https://careerservices.fas.harvard.edu/ai-resumes-and-cover-letters/",
+          "text": "AI can help identify experiences relevant to a job description and suggest language for resumes and cover letters. Review suggestions and keep your own truthful experience and voice.",
+          "kind": "external-summary",
+          "reviewed": "2026-10-22",
+          "score": 9.968909169400266
+        },
+        {
+          "id": "career-exploration",
+          "title": "Compare a role through tasks and evidence",
+          "text": "Compare responsibilities rather than relying on a job title alone. Pick two example postings, identify recurring tasks and map them to activities you have enjoyed. Ask a career advisor or professional about work you have not experienced.",
+          "tags": [
+            "career",
+            "role",
+            "exploration"
+          ],
+          "publisher": "Career Compass project framework · authored guidance",
+          "url": null,
+          "kind": "framework",
+          "reviewed": "2026-10-22",
+          "score": 7.493308482338616
+        },
+        {
+          "id": "skill-gap",
+          "title": "Check a skill gap before studying",
+          "publisher": "Career Compass coaching framework",
+          "url": null,
+          "text": "A skill missing from a resume is missing evidence, not proof that you lack the skill. Review the actual job requirement, decide whether you have experience, and add an accurate example. Otherwise build a small project to practice the skill.",
+          "kind": "framework",
+          "reviewed": "2026-10-22",
+          "score": 3.799217834133457
+        }
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "tool": "search_guidance",
+          "status": "completed"
+        },
+        {
+          "step": 2,
+          "tool": "compare_resume_job",
+          "status": "completed"
+        }
+      ],
+      "usage": {
+        "inputTokens": 5168,
+        "outputTokens": 178,
+        "modelCalls": 3
+      },
+      "model": "gpt-4.1-mini",
+      "elapsedMs": 4112
+    },
+    {
+      "id": "plan",
+      "text": "Here is a practical four-week plan tailored to your 5 hours per week availability for your goal as a Business Analyst Intern:\n\nWeek 1: Confirm and strengthen your evidence. Spend about 5 hours reviewing the job requirements on Power BI, SQL, Excel, and communication skills. Add or revise two key example bullets in your resume or project descriptions related to these skills. Ensure every claim you make is backed by a real example you can clearly explain.\n\nWeek 2: Build a focused proof point. Allocate about 5 hours to create a Power BI dashboard (since it's preferred for the internship) with at least three meaningful metrics, document your data sources, and outline the business decision it supports. This aligns with the job's focus on dashboards and data analysis.\n\nWeek 3: Explain your contribution. Spend 5 hours drafting a concise one-page case study covering the business question, your data inputs, your actions, how you validated results, and any limitations. Be clear about which parts were done individually and which were collaborative.\n\nWeek 4: Practice and seek feedback. Use about 5 hours to prepare three interview answers tailored to the Business Analyst Intern role. Also, tailor your application materials to a specific posting. Share with a peer or a career advisor for feedback on clarity, accuracy, and strength of examples. Record any feedback and make revisions.\n\nThis plan gives you a clear, manageable path to develop relevant skills, produce concrete evidence for the internship, and prepare to communicate your fit clearly within your weekly 5-hour time budget.\n\nGuidance sources: [source:plan] [source:weekly-plan]",
+      "sourceIds": [
+        "plan",
+        "weekly-plan"
+      ],
+      "sources": [
+        {
+          "id": "plan",
+          "title": "Make a small learning plan",
+          "publisher": "Career Compass coaching framework",
+          "url": null,
+          "text": "Prioritize one skill mentioned in the target job. Define a small portfolio project, set weekly milestones and document the result. The suggested four-week plan is an editable coaching template, not a guarantee of job readiness.",
+          "kind": "framework",
+          "reviewed": "2026-10-22",
+          "score": 11.128566604673425
+        },
+        {
+          "id": "weekly-plan",
+          "title": "Set a realistic learning commitment",
+          "text": "Choose one priority and a realistic weekly time budget. Scope one project around that budget. Use a deliverable and a self-check for each milestone. Adjust the plan when deadlines or class workload change.",
+          "tags": [
+            "plan",
+            "time",
+            "learning"
+          ],
+          "publisher": "Career Compass project framework · authored guidance",
+          "url": null,
+          "kind": "framework",
+          "reviewed": "2026-10-22",
+          "score": 3.2237888689668144
+        }
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "tool": "search_guidance",
+          "status": "completed"
+        },
+        {
+          "step": 2,
+          "tool": "create_plan",
+          "status": "completed"
+        }
+      ],
+      "usage": {
+        "inputTokens": 3628,
+        "outputTokens": 366,
+        "modelCalls": 3
+      },
+      "model": "gpt-4.1-mini",
+      "elapsedMs": 4497
+    },
+    {
+      "id": "document-instruction",
+      "text": "Your resume has good foundational elements such as relevant skills and projects for a Business Analyst Intern role. To improve it truthfully and make it stronger for recruiters, consider expanding on your bullets with more specific details on your individual contributions, outcomes, and scope. For example, instead of \"Analyzed campus dining data with SQL and built a Tableau dashboard for a class project,\" you could specify what insights your analysis revealed, how your dashboard helped inform decisions, or any measurable impact. Similarly, clarify your role and the results when collaborating or presenting, such as how your recommendations influenced the instructor's feedback or student decisions. For your student assistant role, mention any improvements you made in tracking or organizing event registrations that resulted in better accuracy or efficiency. Adding such context will better demonstrate your skills and impact without fabricating achievements. If you can share more details on these areas, I can help you draft improved bullet examples.\n\nGuidance sources: [source:negation]",
+      "sourceIds": [
+        "negation"
+      ],
+      "sources": [
+        {
+          "id": "negation",
+          "title": "Resolve conflicting evidence",
+          "text": "If a resume says both that a student lacks a skill and that they used it, clarify the dates and scope. Professional experience and academic exposure may differ. Avoid treating contradictory mentions as a verified match.",
+          "tags": [
+            "evidence",
+            "resume"
+          ],
+          "publisher": "Career Compass project framework · authored guidance",
+          "url": null,
+          "kind": "framework",
+          "reviewed": "2026-10-22",
+          "score": 3.08311714646786
+        }
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "tool": "search_guidance",
+          "status": "completed"
+        },
+        {
+          "step": 2,
+          "tool": "review_resume",
+          "status": "completed"
+        }
+      ],
+      "usage": {
+        "inputTokens": 3765,
+        "outputTokens": 225,
+        "modelCalls": 3
+      },
+      "model": "gpt-4.1-mini",
+      "elapsedMs": 3821
+    }
+  ]
+}

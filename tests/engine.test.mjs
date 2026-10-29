@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {analyze,retrieve,hasTerm,interviewFeedback,makePlan,sampleResume,sampleJob} from '../dist/engine.mjs';
+test('partial resume surfaces both evidence and absent mentions',()=>{const r=analyze(sampleResume,sampleJob,'Business Analyst');assert(r.found.some(x=>x.skill==='SQL'));assert(r.gaps.some(x=>x.skill==='Power BI'));assert(r.gaps.every(x=>x.resumeEvidence===''));assert(r.rows.every(x=>x.jobEvidence.length>0));assert(r.coverage>0&&r.coverage<100);assert.equal(makePlan(r).length,4)});
+test('phrase boundaries avoid Java matching JavaScript and SQL matching NoSQL',()=>{assert.equal(hasTerm('JavaScript','java'),false);assert.equal(hasTerm('NoSQL','sql'),false);assert.equal(hasTerm('C++ developer','c++'),true);assert.equal(hasTerm('Uses C# and SQL','c#'),true)});
+test('unknown roles do not receive an invented coverage score',()=>{const r=analyze('I study ceramics and make functional vessels for campus exhibitions.','Seeking a ceramics apprentice to throw and glaze vessels in a studio.','Ceramic artist');assert.equal(r.coverage,null);assert.equal(r.rows.length,0)});
+test('retrieval returns only passages with lexical relevance',()=>{assert.deepEqual(retrieve('zqxvkb'),[]);const docs=retrieve('interview practice');assert(docs.some(x=>/interview/i.test(x.title+' '+x.text)));assert(docs.every(x=>x.score>0))});
+test('added guidance participates in retrieval',()=>{const d={id:'custom',title:'Zebraproject',text:'Zebraproject campus guidance',publisher:'user'};assert.equal(retrieve('zebraproject',[d])[0].id,'custom')});
+test('underspecified comparisons fail clearly',()=>assert.throws(()=>analyze('short','short',''),/40 characters/));
+test('interview review exposes heuristics rather than correctness claims',()=>{const f=interviewFeedback('During a class project I built a Tableau dashboard from campus dining records. I analyzed duplicate entries before presenting the result. The result helped our team review 10 records and identify a data quality issue.');assert(f.items.every(i=>i.signal));assert.match(f.note,/do not establish answer quality/)});

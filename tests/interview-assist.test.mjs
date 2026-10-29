@@ -1,0 +1,18 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {classifyInterviewRequest,conversationControl,buildAnswerDraft} from '../dist/interview-assist.mjs';import {routeIntent} from '../dist/engine.mjs';
+const exact='Can you help me come up with answer for when they ask me to tell them about myself at a job interview';
+test('reported request routes to answer drafting, not mock interview',()=>assert.deepEqual(classifyInterviewRequest(exact),{intent:'interview-draft',topic:'introduction'}));
+test('core router preserves the reported drafting intent',()=>assert.equal(routeIntent(exact),'interview-draft'));
+test('long requests are not lost to the former 140-character cutoff',()=>assert.equal(routeIntent(exact+' I would like a useful starting answer that I can personalize with my academic project experience.'),'interview-draft'));
+test('explicit practice still starts a mock interview',()=>assert.equal(routeIntent('Help me practice for an interview'),'interview'));
+test('drafting wins when a mock interview is mentioned as context',()=>assert.equal(routeIntent('Write an example answer for tell me about yourself in a mock interview'),'interview-draft'));
+test('general interview help asks which kind of help is wanted',()=>assert.equal(routeIntent('Can you help me prepare for an interview?'),'interview-help'));
+test('a students narrative answer does not become a new task',()=>assert.equal(classifyInterviewRequest('During a class project I built an interview scheduling dashboard and tested it with my team.'),null));
+test('correction is recognized rather than graded',()=>assert.equal(conversationControl('Not what I am looking for'),'correction'));
+test('stop exits practice',()=>assert.equal(conversationControl('Stop asking me questions'),'stop'));
+test('simple pause cancels current mode',()=>assert.equal(conversationControl('pause'),'stop'));
+test('draft with no profile provides a useful template without invented facts',()=>{const d=buildAnswerDraft();assert.match(d.text,/\[your current role or degree\]/);assert.match(d.text,/\[a real project/);assert.equal(d.hasContext,false);assert(!/Jordan|Harvard|five years|20%/.test(d.text))});
+test('supplied context is preserved and missing outcomes remain placeholders',()=>{const d=buildAnswerDraft({resume:'MS Information Systems\nBuilt a dashboard with 3 classmates for a course.',role:'Business Analyst Intern'});assert(d.text.includes('3 classmates'));assert(d.text.includes('Business Analyst Intern'));assert(d.text.includes('[your genuine reason'));assert(!/improved|reduced|increased|%/.test(d.text));assert(d.hasContext)});
+test('weakness response does not invent a personal weakness',()=>{const d=buildAnswerDraft({topic:'weakness'});assert.match(d.text,/\[a genuine area for growth\]/)});
+test('first-person student context remains first person rather than malformed prose',()=>{const d=buildAnswerDraft({details:"I'm pursuing an MS in Information Systems.\nProject: I built a SQL dashboard for a class.\nTarget role: Business Analyst Intern"});assert(d.text.startsWith("I'm pursuing an MS"));assert(d.text.includes('Business Analyst Intern'));assert(!d.text.includes("includes I'm"))});
+test('a negated project statement is not used as a positive achievement',()=>{const d=buildAnswerDraft({details:'I have never built a dashboard or created a Python project.'});assert(!d.evidence.some(e=>e.includes('never built')));assert(d.text.includes('[a real project'))});
