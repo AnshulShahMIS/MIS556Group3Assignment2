@@ -1,0 +1,7 @@
+.sites-runtime/
+.env*
+.dev.vars*
+node_modules/
+*.pem
+
+.pages/

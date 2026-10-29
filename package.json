@@ -1,0 +1,16 @@
+{
+  "name": "career-compass",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "evaluate": "node evaluation/run.mjs",
+    "dev": "node serve.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "start": "node serve.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

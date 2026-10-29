@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: career-compass-api
+    runtime: node
+    plan: free
+    buildCommand: node --check serve.mjs
+    startCommand: node serve.mjs
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://anshulshahmis.github.io
