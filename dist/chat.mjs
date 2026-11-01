@@ -1,4 +1,5 @@
 import {createChatStore,historyKey,encodeNode,decodeNode} from './chat-store.mjs';
+import {conversationalReply} from './reply-presentation.mjs';
 import {readApiBase,apiEndpoint} from './api-client.mjs';
 import {classifyInterviewRequest,conversationControl,buildAnswerDraft} from './interview-assist.mjs';
 import {suggestNextStep,inferDocumentType} from './journey.mjs';
@@ -105,7 +106,7 @@ async function sendLive(text){
   if(version!==liveVersion)return;
   pending.closest('.message').remove();
   if(!response.ok)throw Error(answer.error||'The AI request failed. Please retry.');
-  const box=say(answer.text);box.classList.add('live-answer');
+  const box=say(conversationalReply(answer.text));box.classList.add('live-answer');
   liveHistory.push({role:'assistant',content:answer.text.slice(0,6000)});
   const details=node('details',undefined,'supporting-details');details.append(node('summary','Sources and agent activity'));
   for(const item of answer.sources||[])source(details,item);
@@ -184,6 +185,7 @@ function openConversation(id){
  docs=[...knowledge,...(Array.isArray(state.customSources)?state.customSources:[]).slice(0,6).filter(d=>d&&typeof d.id==='string'&&d.id.startsWith('custom-')&&typeof d.text==='string').map(d=>({id:d.id,title:String(d.title||'Saved guidance').slice(0,160),text:d.text.slice(0,12000),publisher:'Added by you · not independently verified',url:null}))];
  try{result=resume.length>=40&&job.length>=40?analyze(resume,job,role,docs):null}catch{result=null}
  for(const message of (Array.isArray(state.messages)?state.messages:[]))$('#messages').append(decodeNode(message,document));
+ for(const reply of $('#messages').querySelectorAll('.live-answer > p:first-child'))reply.textContent=conversationalReply(reply.textContent);
  transcript=(Array.isArray(state.transcript)?state.transcript:[]).filter(m=>m&&typeof m.text==='string');$('#welcome').hidden=$('#messages').children.length>0;
  $('#message').value=String(state.draftInput||'').slice(0,40000);$('#session-title').textContent=chat.title;status();renderHistory();
  requestAnimationFrame(()=>{$('#chat-scroll').scrollTop=Number(state.scrollTop)||0});
