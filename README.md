@@ -33,8 +33,14 @@ The backend has a 90-second request timeout, six model decisions, a 1,500-token 
 
 ## Verification and readiness
 
-86 automated tests pass, including the existing career and adapter tests plus Pages artifact boundaries, relative assets, API configuration, CORS preflight and the shared process request limit. The existing live development checks were performed on version 0.4; this version's final public end-to-end test is pending actual deployment. Do not present the application as online until both deployments and a public AI request have been verified.
+91 automated tests pass, including the existing career and adapter tests plus Pages artifact boundaries, relative assets, API configuration, CORS preflight and the shared process request limit. The existing live development checks were performed on version 0.4; this version's final public end-to-end test is pending actual deployment. Do not present the application as online until both deployments and a public AI request have been verified.
 
 Real student usefulness testing, broader citation evaluation and the final five-minute presentation remain. The assignment permits selected career needs and does not require a multi-agent architecture.
 
 References: https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages and https://render.com/docs/web-services.
+
+## Conversation history in version 0.6
+
+New conversation preserves the previous chat. Reopen saved chats from the sidebar or Chats button on mobile. Messages, resume/job context, goals, added guidance, drafts and recent model conversation context are saved in this browser's local storage. Chats do not sync across devices. Up to 25 chats are retained; older chats are not silently deleted. Delete controls remove the selected chat locally. Storage failures are surfaced so the student can export the current conversation.
+
+Browser storage is not encrypted and can be accessed by people using the same browser profile. Use redacted inputs and delete chats on shared devices. Clearing site data removes saved chats. Conversations closed before this feature existed were not saved and cannot be recovered. Export an existing conversation before the first refresh that loads this update.

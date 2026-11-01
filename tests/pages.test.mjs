@@ -17,5 +17,5 @@ test('Pages artifact includes assets only, supports a project path and requires 
  buildPages({output,apiBaseUrl:'https://coach.example'});
  assert.equal(existsSync(join(output,'index.html')),true);assert.equal(existsSync(join(output,'server-env.mjs')),false);assert.equal(existsSync(join(output,'.env')),false);
  assert.equal(JSON.parse(readFileSync(join(output,'api-config.json'),'utf8')).apiBaseUrl,'https://coach.example');
- const html=readFileSync(join(output,'index.html'),'utf8');assert.match(html,/src="chat.mjs"/);assert.doesNotMatch(html,/src="\/chat.mjs"/);
+ const html=readFileSync(join(output,'index.html'),'utf8');assert.match(html,/src="chat\.mjs(?:\?v=[^"]+)?"/);assert.doesNotMatch(html,/src="\/chat.mjs"/);
 });
